@@ -8,21 +8,21 @@ export const MovieDetailPage: React.FC = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
+    const fetchMovieDetails = async () => {
+        setLoading(true);
+        setError(null);
+
+        try {
+            const movieDetails = await OmdbApiService.getMovieDetails(imdbID!);
+            setMovie(movieDetails);
+        } catch (err) {
+            setError('Error fetching movie details');
+        } finally {
+            setLoading(false);
+        }
+    };
+
     useEffect(() => {
-        const fetchMovieDetails = async () => {
-            setLoading(true);
-            setError(null);
-
-            try {
-                const movieDetails = await OmdbApiService.getMovieDetails(imdbID!);
-                setMovie(movieDetails);
-            } catch (err) {
-                setError('Error fetching movie details');
-            } finally {
-                setLoading(false);
-            }
-        };
-
         fetchMovieDetails();
     }, [imdbID]);
 

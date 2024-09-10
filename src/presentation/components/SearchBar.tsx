@@ -20,7 +20,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search for movies or series..."
+                placeholder="Ingresa la serie o peli que quieres consultar"
                 className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <select
@@ -28,9 +28,9 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
                 value={type}
                 onChange={(e) => setType(e.target.value as 'movie' | 'series' | 'both')}
             >
-                <option value="movie">Movies</option>
+                <option value="movie">Películas</option>
                 <option value="series">Series</option>
-                <option value="both">Both</option>
+                <option value="both">Películas y series</option>
             </select>
             <button
                 onClick={handleSearch}
