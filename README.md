@@ -1,6 +1,17 @@
-# React + TypeScript + Vite
+# Que mirar App
+## React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta es una web app construida con React, TypeScript y Vite. Su funcionalidad consiste en buscar películas y series 
+de televisión consumiendo la api de OMDB.
+
+## Instalación
+### Requisitos
+- Necesitas usar `Nodejs v£20` o superior para poder levantar el proyecto 
+- Corre el comando `npm install` para instalar las dependencias del proyecto
+- Corre el comando `npm run dev` para levantar el proyecto en modo desarrollo y visualizar la aplicación en tu 
+  navegador por el puerto [http://localhost:5173/](http://localhost:5173/)
+
+----------
 
 Currently, two official plugins are available:
 
