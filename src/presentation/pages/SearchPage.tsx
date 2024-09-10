@@ -1,5 +1,4 @@
-// src/presentation/pages/SearchPage.tsx
-import React, { useEffect } from 'react';
+import React from 'react';
 import { SearchBar } from '../components/SearchBar.tsx';
 import { Link } from 'react-router-dom';
 import { useMovieStore } from '../../store/useMovieStore';
@@ -19,22 +18,16 @@ export const SearchPage: React.FC = () => {
         setPage,
     } = useMovieStore();
 
-    const handleSearch = async (searchQuery: string) => {
+    const handleSearch = async (searchQuery: string, type: 'movie' | 'series' | 'both') => {
         setQuery(searchQuery);
         setPage(1); // Reset page to 1 on new search
-        await fetchMovies(searchQuery, 1);
+        await fetchMovies(searchQuery, 1, type);
     };
 
     const handlePageChange = async (newPage: number) => {
         setPage(newPage);
-        await fetchMovies(query, newPage);
+        await fetchMovies(query, newPage, 'both'); // Adjust the type as needed
     };
-
-    useEffect(() => {
-        if (query) {
-            fetchMovies(query, page); // Fetch movies on initial render or page change
-        }
-    }, [query, page, fetchMovies]);
 
     return (
         <div className="container mx-auto px-4 py-6">
