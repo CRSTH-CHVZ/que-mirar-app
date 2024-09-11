@@ -59,23 +59,27 @@ export const SearchPage: React.FC = () => {
                     </div>
 
                     {/* Pagination Controls */}
-                    <div className="flex justify-between items-center mt-6">
-                        <button
-                            onClick={() => handlePageChange(page - 1)}
-                            disabled={page === 1}
-                            className="px-4 py-2 bg-blue-600 text-white rounded-lg disabled:bg-gray-400"
-                        >
-                            Previous
-                        </button>
-                        <p>Page {page} of {Math.ceil(totalResults / 10)}</p>
-                        <button
-                            onClick={() => handlePageChange(page + 1)}
-                            disabled={page * 10 >= totalResults}
-                            className="px-4 py-2 bg-blue-600 text-white rounded-lg disabled:bg-gray-400"
-                        >
-                            Next
-                        </button>
-                    </div>
+                    {
+                        movies?.length >= 1 ?
+                            <div className="flex justify-between items-center mt-6">
+                                <button
+                                    onClick={() => handlePageChange(page - 1)}
+                                    disabled={page === 1}
+                                    className="px-4 py-2 bg-blue-600 text-white rounded-lg disabled:bg-gray-400"
+                                >
+                                    Anterior
+                                </button>
+                                <p>Página {page} de {Math.ceil(totalResults / 10)}</p>
+                                <button
+                                    onClick={() => handlePageChange(page + 1)}
+                                    disabled={page * 10 >= totalResults}
+                                    className="px-4 py-2 bg-blue-600 text-white rounded-lg disabled:bg-gray-400"
+                                >
+                                    Siguiente
+                                </button>
+                            </div>
+                            : null
+                    }
                 </>
             )}
         </div>
