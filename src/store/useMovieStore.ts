@@ -51,7 +51,7 @@ export const useMovieStore = create<MovieState>((set, get) => ({
                     loading: false,
                 });
             } catch (err) {
-                set({ error: 'Error fetching movies', loading: false });
+                set({ error: 'No encontramos coincidencias para tu búsqueda. Intenta algo diferente', loading: false });
             }
         }
     },

@@ -39,7 +39,7 @@ export const SearchPage: React.FC = () => {
                 </div>
             ) : (
                 <>
-                    {error && <p className="text-center text-red-500">{error}</p>}
+                    {error && <p className="animate-bounce text-center text-gray-800">{error}</p>}
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
                         {movies.map((movie, index) => (
@@ -52,7 +52,7 @@ export const SearchPage: React.FC = () => {
                                 <p className="text-gray-600">{movie.Year}</p>
                                 <p className="text-gray-600">{movie.Type}</p>
                                 <Link to={`/movie/${movie.imdbID}`} className="text-blue-600 hover:underline">
-                                    View Details
+                                    Más detalles
                                 </Link>
                             </div>
                         ))}
@@ -61,7 +61,7 @@ export const SearchPage: React.FC = () => {
                     {/* Pagination Controls */}
                     {
                         movies?.length >= 1 ?
-                            <div className="flex justify-between items-center mt-6">
+                            <div className="flex justify-evenly items-center fixed bottom-0 left-0 w-full bg-gray-500 p-4">
                                 <button
                                     onClick={() => handlePageChange(page - 1)}
                                     disabled={page === 1}

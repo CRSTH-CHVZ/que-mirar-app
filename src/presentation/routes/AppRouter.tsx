@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { SearchPage } from '../pages/SearchPage';
-import {MovieDetailPage} from "../pages/MovieDetailPage.tsx";
+import { MovieDetailPage } from "../pages/MovieDetailPage";
 
 export const AppRouter: React.FC = () => {
     return (
@@ -9,6 +9,7 @@ export const AppRouter: React.FC = () => {
             <Routes>
                 <Route path="/" element={<SearchPage />} />
                 <Route path="/movie/:imdbID" element={<MovieDetailPage />} />
+                <Route path="*" element={<SearchPage />} />
             </Routes>
         </Router>
     );

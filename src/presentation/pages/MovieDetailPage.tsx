@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { OmdbApiService } from '../../data/api/OmdbApiService';
+import { ClipLoader } from 'react-spinners';  // Import the spinner
 
 export const MovieDetailPage: React.FC = () => {
     const { imdbID } = useParams<{ imdbID: string }>();
@@ -31,7 +32,14 @@ export const MovieDetailPage: React.FC = () => {
         fetchMovieDetails();
     }, [imdbID]);
 
-    if (loading) return <p className="text-center text-gray-500">Cargando...</p>;
+    if (loading) {
+        return (
+            <div className="text-center">
+                <p className="text-gray-500">Cargando...</p>
+                <ClipLoader color="#3b82f6" size={50} />
+            </div>
+        );
+    }
     if (error) return <p className="text-center text-red-500">{error}</p>;
 
     return (
